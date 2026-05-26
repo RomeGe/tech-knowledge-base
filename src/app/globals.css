@@ -1,26 +1,271 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Dieter Rams / Inter 风格主题系统 */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 亮色主题 - 冷静的工业设计感 */
+  --background: #fafafa;
+  --foreground: #1a1a1a;
+  --surface: #ffffff;
+  --surface-hover: #f5f5f5;
+  --border: #e5e5e5;
+  --border-subtle: #f0f0f0;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --accent: #1e3a5f; /* 深蓝 - 低饱和度强调色 */
+  --accent-hover: #2d4a6f;
+  --accent-subtle: #f0f4f8;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+}
+
+[data-theme="dark"] {
+  /* 暗色主题 */
+  --background: #0a0a0a;
+  --foreground: #e5e5e5;
+  --surface: #141414;
+  --surface-hover: #1a1a1a;
+  --border: #262626;
+  --border-subtle: #1f1f1f;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #737373;
+  --accent: #4a7c9b; /* 暗色模式下的深蓝 */
+  --accent-hover: #5a8cab;
+  --accent-subtle: #1a2a3a;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--reading-font-size, 16px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 阅读宽度变量 */
+:root {
+  --reading-font-size: 16px;
+  --reading-max-width: 896px;
+}
+
+.prose {
+  font-size: var(--reading-font-size, 16px);
+}
+
+/* 选择样式 */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* 滚动条样式 - 极简 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 打印样式 */
+@media print {
+  header, footer, nav, aside, .fixed, [role="button"] {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+  .prose {
+    max-width: 100%;
+  }
+  .prose pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+/* 行内代码样式 */
+code:not(pre code) {
+  padding: 0.15em 0.35em;
+  background: var(--muted);
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* 链接下划线 */
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* 表格样式增强 */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--muted);
+  font-weight: 500;
+}
+
+/* 图片圆角 */
+.prose img {
+  border-radius: 8px;
+}
+
+/* 引用块样式 */
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+/* 键盘快捷键样式 */
+kbd {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  font-size: 0.75em;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* High contrast mode */
+[data-high-contrast] {
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #555555;
+  --border: #000000;
+  --accent: #0000aa;
+}
+
+[data-theme="dark"][data-high-contrast] {
+  --text-primary: #ffffff;
+  --text-secondary: #dddddd;
+  --text-tertiary: #bbbbbb;
+  --border: #ffffff;
+  --accent: #6699ff;
+}
+
+/* Dyslexia-friendly font */
+[data-dyslexia-font] {
+  --font-dyslexia: 'OpenDyslexic', 'Comic Sans MS', cursive;
+}
+
+[data-dyslexia-font] body,
+[data-dyslexia-font] * {
+  font-family: var(--font-dyslexia) !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* Large click targets */
+[data-large-targets] button,
+[data-large-targets] a,
+[data-large-targets] input,
+[data-large-targets] select {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 16px;
+}
+
+/* Color blind modes */
+[data-color-blind="protanopia"] {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="p"><feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/></filter></svg>#p');
+}
+
+[data-color-blind="deuteranopia"] {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="d"><feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/></filter></svg>#d');
+}
+
+[data-color-blind="tritanopia"] {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="t"><feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/></filter></svg>#t');
+}
+
+/* Focus indicators */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  font-size: 14px;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }

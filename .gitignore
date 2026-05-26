@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
+
+.vercel
+.env*
+
+# database
+*.db
+*.db-journal
+
+# auth
+auth
+auth-wal
+cookies.txt

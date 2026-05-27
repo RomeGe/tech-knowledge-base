@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 
-export const runtime = 'edge';
-
 // GET: Fetch all articles (admin) or published articles (public)
 export async function GET(request: NextRequest) {
   try {

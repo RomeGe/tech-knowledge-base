@@ -19,7 +19,8 @@ jobs:
 
       - run: npx prisma generate
 
-      - run: npm run build
+      - name: Build for Cloudflare Pages
+        run: npx @cloudflare/next-on-pages
         env:
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
@@ -29,4 +30,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 08d83fa10e6061e03f712954e220c354
-          command: pages deploy .next --project-name ls-home --branch main
+          command: pages deploy .vercel/output/static --project-name ls-home --branch main

@@ -73,10 +73,10 @@ export default async function HomePage() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-2xl font-semibold text-text-primary mb-1">
-              Tech.KB
+              ls.home
             </h1>
             <p className="text-text-secondary text-sm">
-              个人技术知识库 — 嵌入式系统、硬件设计与编程技术
+              ls技术知识展示 — 嵌入式系统、硬件设计与编程技术
             </p>
           </div>
           <div className="flex gap-6">

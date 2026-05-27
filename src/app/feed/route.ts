@@ -33,9 +33,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech.KB - 个人技术知识库</title>
+    <title>ls.home - ls技术知识展示</title>
     <link>${siteUrl}</link>
-    <description>个人技术知识库，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。</description>
+    <description>ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。</description>
     <language>zh-CN</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${siteUrl}/feed" rel="self" type="application/rss+xml"/>

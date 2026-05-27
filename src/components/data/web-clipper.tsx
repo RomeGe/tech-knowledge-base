@@ -111,7 +111,7 @@ export function WebClipper() {
           className="inline-block px-3 py-1.5 text-xs bg-accent text-white rounded hover:bg-accent-hover transition-colors"
           draggable
         >
-          剪藏到 Tech.KB
+          剪藏到 ls.home
         </a>
       </div>
     </div>

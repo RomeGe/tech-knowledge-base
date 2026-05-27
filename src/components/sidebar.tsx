@@ -92,7 +92,7 @@ export function Sidebar() {
       <div className="flex items-center justify-between h-14 px-4 border-b border-border">
         {!collapsed && (
           <Link href="/" className="text-lg font-semibold tracking-tight text-text-primary hover:text-accent transition-colors">
-            Tech.KB
+            ls.home
           </Link>
         )}
         <button

@@ -21,27 +21,27 @@ const siteUrl = "https://lslff-embedded-ntc.vercel.app";
 
 export const metadata: Metadata = {
   title: {
-    default: "Tech.KB - 个人技术知识库",
-    template: "%s | Tech.KB",
+    default: "ls.home - ls技术知识展示",
+    template: "%s | ls.home",
   },
   description:
-    "个人技术知识库，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+    "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
   keywords: ["嵌入式系统", "硬件设计", "编程", "STM32", "ESP32", "技术笔记"],
-  authors: [{ name: "Tech.KB" }],
+  authors: [{ name: "ls.home" }],
   openGraph: {
     type: "website",
     locale: "zh_CN",
     url: siteUrl,
-    siteName: "Tech.KB",
-    title: "Tech.KB - 个人技术知识库",
+    siteName: "ls.home",
+    title: "ls.home - ls技术知识展示",
     description:
-      "个人技术知识库，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+      "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tech.KB - 个人技术知识库",
+    title: "ls.home - ls技术知识展示",
     description:
-      "个人技术知识库，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+      "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
   },
   robots: {
     index: true,
@@ -60,10 +60,10 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Tech.KB",
+    name: "ls.home",
     url: siteUrl,
     description:
-      "个人技术知识库，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+      "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
   };
 
   return (

@@ -26,7 +26,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight text-text-primary hover:text-accent transition-colors"
         >
-          Tech.KB
+          ls.home
         </Link>
 
         {/* Desktop nav */}

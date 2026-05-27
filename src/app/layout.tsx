@@ -25,9 +25,21 @@ export const metadata: Metadata = {
     template: "%s | ls.home",
   },
   description:
-    "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
-  keywords: ["嵌入式系统", "硬件设计", "编程", "STM32", "ESP32", "技术笔记"],
-  authors: [{ name: "ls.home" }],
+    "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。包含 STM32、ESP32 开发教程，嵌入式工具，项目实战。",
+  keywords: [
+    "嵌入式系统", "硬件设计", "编程", "STM32", "ESP32", "技术笔记",
+    "嵌入式开发", "单片机", "RTOS", "FreeRTOS", "物联网", "IoT",
+    "PCB设计", "电路设计", "C语言", "嵌入式C", "固件开发",
+  ],
+  authors: [{ name: "ls.home", url: siteUrl }],
+  creator: "ls.home",
+  publisher: "ls.home",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     locale: "zh_CN",
@@ -36,20 +48,44 @@ export const metadata: Metadata = {
     title: "ls.home - ls技术知识展示",
     description:
       "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "ls.home - ls技术知识展示",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ls.home - ls技术知识展示",
     description:
       "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: siteUrl,
+    types: {
+      "application/rss+xml": `${siteUrl}/feed`,
+    },
   },
+  verification: {
+    // google: "your-google-verification-code",
+    // bing: "your-bing-verification-code",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -59,11 +95,30 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "ls.home",
-    url: siteUrl,
-    description:
-      "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: "ls.home",
+        url: siteUrl,
+        description: "ls技术知识展示，记录嵌入式系统、硬件设计、编程技术的文章与项目经验。",
+        inLanguage: "zh-CN",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/archive?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "Organization",
+        name: "ls.home",
+        url: siteUrl,
+        description: "嵌入式系统、硬件设计与编程技术知识库",
+        sameAs: ["https://github.com/RomeGe"],
+      },
+    ],
   };
 
   return (

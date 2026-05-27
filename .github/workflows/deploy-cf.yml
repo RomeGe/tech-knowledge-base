@@ -15,12 +15,12 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
 
       - run: npx prisma generate
 
       - name: Build for Cloudflare Pages
-        run: npx @cloudflare/next-on-pages
+        run: npx @cloudflare/next-on-pages --force
         env:
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}

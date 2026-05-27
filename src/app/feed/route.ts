@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+export const runtime = 'edge';
+
 const siteUrl = "https://lslff-embedded-ntc.vercel.app";
 
 export async function GET() {

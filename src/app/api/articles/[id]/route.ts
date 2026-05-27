@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 
+export const runtime = 'edge';
+
 interface ArticleParams {
   params: Promise<{ id: string }>;
 }

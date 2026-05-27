@@ -4,6 +4,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { prisma } from "@/lib/prisma";
 
+export const runtime = 'edge';
+
 interface ProjectPageProps {
   params: Promise<{ id: string }>;
 }

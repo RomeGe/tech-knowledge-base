@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 
+export const runtime = 'edge';
+
 // This endpoint initializes the admin user
 // Should only be used once during initial setup
 export async function POST() {

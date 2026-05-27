@@ -20,7 +20,7 @@ jobs:
       - run: npx prisma generate
 
       - name: Build for Cloudflare Pages
-        run: npx @cloudflare/next-on-pages --force
+        run: npx @cloudflare/next-on-pages
         env:
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}

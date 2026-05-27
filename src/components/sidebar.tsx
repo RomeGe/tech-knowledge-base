@@ -91,8 +91,13 @@ export function Sidebar() {
       {/* Logo + collapse button */}
       <div className="flex items-center justify-between h-14 px-4 border-b border-border">
         {!collapsed && (
-          <Link href="/" className="text-lg font-semibold tracking-tight text-text-primary hover:text-accent transition-colors">
-            ls.home
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center">
+              <span className="text-xs font-bold font-mono text-accent">ls</span>
+            </div>
+            <span className="text-lg font-semibold tracking-tight text-text-primary group-hover:text-accent transition-colors">
+              ls.home
+            </span>
           </Link>
         )}
         <button

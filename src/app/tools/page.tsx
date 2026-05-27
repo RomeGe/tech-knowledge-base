@@ -1,6 +1,10 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from "react";
+import CodePlayground from "@/components/tools/code-playground";
+import SerialMonitor from "@/components/tools/serial-monitor";
+import PinConfigurator from "@/components/tools/pin-configurator";
+import RegisterViewer from "@/components/tools/register-viewer";
 
 // ─── Shared helpers ────────────────────────────────────────────────────────────
 
@@ -1823,6 +1827,10 @@ const tools = [
   { id: "git", name: "Git 命令", icon: "git" },
   { id: "ascii", name: "ASCII 表", icon: "A" },
   { id: "ports", name: "端口参考", icon: ":" },
+  { id: "code-playground", name: "代码 Playground", icon: "C" },
+  { id: "serial-monitor", name: "串口模拟器", icon: "TX" },
+  { id: "pin-config", name: "引脚配置器", icon: "PIN" },
+  { id: "register-viewer", name: "寄存器查看器", icon: "REG" },
 ];
 
 const toolComponents: Record<string, React.ComponentType> = {
@@ -1846,6 +1854,10 @@ const toolComponents: Record<string, React.ComponentType> = {
   git: GitReference,
   ascii: AsciiTable,
   ports: PortReference,
+  "code-playground": CodePlayground,
+  "serial-monitor": SerialMonitor,
+  "pin-config": PinConfigurator,
+  "register-viewer": RegisterViewer,
 };
 
 export default function ToolsPage() {
@@ -1861,7 +1873,7 @@ export default function ToolsPage() {
           开发者工具
         </h1>
         <p className="mt-2 text-text-secondary text-sm">
-          20 个常用开发工具集合，覆盖编码、转换、生成、查询等场景
+          24 个常用开发工具集合，覆盖编码、转换、生成、查询等场景
         </p>
       </header>
 

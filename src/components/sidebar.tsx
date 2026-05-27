@@ -11,6 +11,7 @@ const navItems = [
   { href: "/projects", label: "项目", icon: "folder" },
   { href: "/archive", label: "归档", icon: "archive" },
   { href: "/tools", label: "工具", icon: "wrench" },
+  { href: "/data", label: "数据", icon: "database" },
   { href: "/links", label: "链接", icon: "link" },
   { href: "/about", label: "关于", icon: "info" },
   { href: "/admin", label: "管理", icon: "settings" },
@@ -36,6 +37,11 @@ const icons: Record<string, React.ReactNode> = {
   wrench: (
     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.59-5.59a7.5 7.5 0 1110.61-10.6l-.18.18a7.5 7.5 0 01-4.84 12.01z" />
+    </svg>
+  ),
+  database: (
+    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
     </svg>
   ),
   link: (
